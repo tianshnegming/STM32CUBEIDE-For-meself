@@ -71,7 +71,7 @@ int main(void)
 
 	uint8_t dir = 1;
 //	uint8_t tmp=0;
-	uint8_t ledPWMval = 1;
+	uint16_t ledPWMval = 1;
   /* USER CODE END 1 */
   
 
@@ -99,7 +99,7 @@ int main(void)
 //  HAL_UART_Receive_IT(USART3,date_receive,1);
 
   HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_2 );
-  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,23 +114,23 @@ int main(void)
 		  ledPWMval--;
 
 	  if(ledPWMval==900){
-		  dir=0;ledPWMval++;
-		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_RESET);
+		  dir=0;
+		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
 	  }
 	  if(ledPWMval==0){
 		  dir = 1;
-		  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
 	  }
-	  HAL_Delay(10);
+	  HAL_Delay(1);
 	  TIM4->CCR2=ledPWMval;
 
 //
 //	  delay_ms(10);
 //	  if(dir)led0pwmval++; //dir==1 led0pwmval 递增
 //	  else led0pwmval--; //dir==0 led0pwmval 递减
-//	  if(led0pwmval>300)dir=0; //led0pwmval 到达 300 后，方向为递减
-//	  if(led0pwmval==0)dir=1; //led0pwmval 递减到 0 后，方向改为递增
-//	  TIM_SetTIM3Compare4(led0pwmval);//修改比较值，修改占空比
+//	  if(led0pwmval>300)dir=0; //led0pwmval 到达 300 后，方向为�?�减
+//	  if(led0pwmval==0)dir=1; //led0pwmval 递减�? 0 后，方向改为递增
+//	  TIM_SetTIM3Compare4(led0pwmval);//修改比较值，修改占空�?
 
     /* USER CODE END WHILE */
 
