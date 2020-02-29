@@ -70,7 +70,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
 	uint8_t dir = 1;
-//	uint8_t tmp=0;
+//	uint8_t tmp = 0;
 	uint16_t ledPWMval = 1;
   /* USER CODE END 1 */
   
